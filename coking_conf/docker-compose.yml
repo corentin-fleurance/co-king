@@ -1,0 +1,21 @@
+version: '3.7'
+
+networks:
+  backend:
+    driver: bridge
+  frontend:
+    driver: bridge
+
+services:
+
+  calendz-database:
+    container_name: coking
+    hostname: coking
+    image: mongo:3.6
+    restart: on-failure
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: coking
+      MONGO_INITDB_ROOT_USERNAME: username
+      MONGO_INITDB_ROOT_PASSWORD: password
